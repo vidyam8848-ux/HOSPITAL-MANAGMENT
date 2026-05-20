@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} base {% endblock %}</title>
+</head>
+<body>
+    <nav style="background-color:#5f4040; padding:30px;">
+        <a href="{% url 'index' %}" style="color:white; margin-right:15px; text-decoration:none;">Home</a>
+        <a href="{% url 'doctors' %}" style="color:white; margin-right:15px; text-decoration:none;">Doctors</a>
+        <a href="{% url 'departments' %}" style="color:white; margin-right:15px; text-decoration:none;">Department</a>
+        <a href="{% url 'booking' %}" style="color:white; text-decoration:none;">Booking</a>
+    </nav>
+
+    {% block content %}{% endblock %}
+
+
+    <footer style="background-color:#a36b6b; color:white; text-align:center; padding:15px; margin-top:20px;">
+        <a href="{% url 'about' %}" style="color:white; margin-right:15px; text-decoration:none;">About Us</a>
+        <a href="#" style="color:white; text-decoration:none;">Contact</a>
+        <p style="margin-top:10px;">© 2026 My Website</p>
+    </footer>
+
+
+</body>
+</html>

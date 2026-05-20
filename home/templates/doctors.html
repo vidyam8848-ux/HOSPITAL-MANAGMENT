@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Doctors{% endblock %}
+
+{% block content %}
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f4f7fb;
+    }
+
+    .doctor-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 25px;
+        padding: 40px;
+    }
+
+    .doctor-card {
+        width: 300px;
+        background: #fff;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        transition: 0.3s;
+    }
+
+    .doctor-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .doctor-img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+    }
+
+    .doctor-content {
+        padding: 15px;
+    }
+
+    .doctor-name {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .doctor-spec {
+        color: #555;
+        margin-bottom: 8px;
+    }
+
+    .doctor-dept {
+        display: inline-block;
+        background: #007bff;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 20px;
+        font-size: 12px;
+        margin-bottom: 10px;
+    }
+
+    .btn {
+        display: inline-block;
+        margin-top: 10px;
+        padding: 8px 12px;
+        background: #28a745;
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+        font-size: 14px;
+    }
+
+    .btn:hover {
+        background: #218838;
+    }
+
+</style>
+
+<h1 style="text-align:center; margin-top:20px;">Our Doctors</h1>
+<p style="text-align:center; color:gray;">
+    Meet our team of experienced and compassionate doctors
+</p>
+
+<div class="doctor-container">
+
+    {% for d in doctors %}
+    <div class="doctor-card">
+
+        {% if d.doc_image %}
+        <img class="doctor-img" src="{{ d.doc_image.url }}" alt="{{ d.doc_name }}">
+        {% endif %}
+
+        <div class="doctor-content">
+
+            <div class="doctor-dept">
+                {{ d.dept_name }}
+            </div>
+
+            <div class="doctor-name">
+                {{ d.doc_name }}
+            </div>
+
+            <div class="doctor-spec">
+                Speciality: {{ d.doc_spec }}
+            </div>
+
+            <a href="#" class="btn">View Details</a>
+
+        </div>
+
+    </div>
+    {% endfor %}
+
+</div>
+
+{% endblock %}

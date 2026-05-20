@@ -1,0 +1,257 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family: 'Segoe UI', sans-serif;
+    }
+
+    body{
+        background:#f4f7fb;
+    }
+
+    .hero{
+        width:100%;
+        min-height:100vh;
+        background:#f4f7fb;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        padding:40px;
+    }
+
+    .container{
+        width:100%;
+        max-width:1200px;
+        background:white;
+        border-radius:20px;
+        overflow:hidden;
+        box-shadow:0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    .navbar{
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        padding:20px 50px;
+        background:#ffffff;
+        border-bottom:1px solid #eee;
+    }
+
+    .logo{
+        font-size:28px;
+        font-weight:bold;
+        color:#0f4c81;
+    }
+
+    .nav-links{
+        display:flex;
+        gap:25px;
+    }
+
+    .nav-links a{
+        text-decoration:none;
+        color:#333;
+        font-weight:500;
+        transition:0.3s;
+    }
+
+    .nav-links a:hover{
+        color:#1e88e5;
+    }
+
+    .main-content{
+        display:flex;
+        flex-wrap:wrap;
+        align-items:center;
+        justify-content:space-between;
+        padding:60px 50px;
+    }
+
+    .left{
+        flex:1;
+        min-width:300px;
+    }
+
+    .left h1{
+        font-size:52px;
+        color:#0f172a;
+        margin-bottom:20px;
+        line-height:1.2;
+    }
+
+    .left p{
+        font-size:18px;
+        color:#555;
+        margin-bottom:30px;
+        line-height:1.7;
+    }
+
+    .buttons{
+        display:flex;
+        gap:15px;
+    }
+
+    .btn{
+        padding:14px 28px;
+        border:none;
+        border-radius:8px;
+        cursor:pointer;
+        font-size:16px;
+        font-weight:600;
+        transition:0.3s;
+    }
+
+    .btn-primary{
+        background:#1e88e5;
+        color:white;
+    }
+
+    .btn-primary:hover{
+        background:#1565c0;
+    }
+
+    .btn-secondary{
+        background:#e3f2fd;
+        color:#1565c0;
+    }
+
+    .btn-secondary:hover{
+        background:#bbdefb;
+    }
+
+    .right{
+        flex:1;
+        min-width:300px;
+        text-align:center;
+    }
+
+    .right img{
+        width:100%;
+        max-width:500px;
+    }
+
+    .features{
+        display:grid;
+        grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+        gap:20px;
+        padding:40px 50px 60px;
+        background:#f9fbff;
+    }
+
+    .card{
+        background:white;
+        padding:25px;
+        border-radius:15px;
+        text-align:center;
+        box-shadow:0 5px 15px rgba(0,0,0,0.08);
+        transition:0.3s;
+    }
+
+    .card:hover{
+        transform:translateY(-5px);
+    }
+
+    .card h3{
+        margin:15px 0 10px;
+        color:#0f4c81;
+    }
+
+    .card p{
+        color:#666;
+        font-size:15px;
+        line-height:1.6;
+    }
+
+    .icon{
+        font-size:45px;
+    }
+
+    @media(max-width:768px){
+
+        .navbar{
+            flex-direction:column;
+            gap:15px;
+        }
+
+        .main-content{
+            flex-direction:column;
+            text-align:center;
+        }
+
+        .left h1{
+            font-size:38px;
+        }
+
+        .buttons{
+            justify-content:center;
+        }
+    }
+</style>
+
+<div class="hero">
+    <div class="container">
+
+        
+
+        <!-- Main Section -->
+        <div class="main-content">
+
+            <div class="left">
+                <h1>Hospital Management System</h1>
+
+                <p>
+                    A smart and efficient platform to manage hospital operations,
+                    patient records, doctor schedules, appointments, billing,
+                    and healthcare services in one secure system.
+                </p>
+
+                <div class="buttons">
+                    <button class="btn btn-primary">Get Started</button>
+                    <button class="btn btn-secondary">Learn More</button>
+                </div>
+            </div>
+
+            <div class="right">
+                <!-- <img src="https://cdn-icons-png.flaticon.com/512/3209/3209265.png" alt="Hospital"> -->
+            </div>
+
+        </div>
+
+        <!-- Features -->
+        <div class="features">
+
+            <div class="card">
+                <div class="icon">👨‍⚕️</div>
+                <h3>Doctor Management</h3>
+                <p>Manage doctor profiles, schedules, departments, and availability easily.</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">📅</div>
+                <h3>Appointments</h3>
+                <p>Book and track appointments with patients in real time.</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🧾</div>
+                <h3>Billing System</h3>
+                <p>Generate bills, payment history, and insurance details quickly.</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🏥</div>
+                <h3>Patient Records</h3>
+                <p>Store and access patient medical history securely anytime.</p>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

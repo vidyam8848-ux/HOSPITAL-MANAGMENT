@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family:'Segoe UI', sans-serif;
+    }
+    body{
+        background: #f4f7fb;
+    }
+
+    .booking-wrapper{
+        width:100%;
+        min-height:100vh;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        padding:40px 20px;
+    }
+
+    .booking-container{
+        width:100%;
+        max-width:550px;
+        border:1px solid #e5e5e5;
+        border-radius:15px;
+        padding:40px;
+        box-shadow:0 5px 20px rgba(0,0,0,0.08);
+    }
+
+    .booking-container h2{
+        text-align:center;
+        margin-bottom:30px;
+        color:#5f4040;
+        font-size:32px;
+        font-weight:700;
+    }
+
+    .booking-form p{
+        margin-bottom:20px;
+    }
+
+    .booking-form label{
+        display:block;
+        margin-bottom:8px;
+        font-weight:600;
+        color:#333;
+    }
+
+    .booking-form input,
+    .booking-form select,
+    .booking-form textarea{
+        width:100%;
+        padding:14px;
+        border:1px solid #ccc;
+        border-radius:10px;
+        font-size:15px;
+        transition:0.3s;
+        outline:none;
+    }
+
+    .booking-form input:focus,
+    .booking-form select:focus,
+    .booking-form textarea:focus{
+        border-color:#007bff;
+        box-shadow:0 0 8px rgba(0,123,255,0.2);
+    }
+
+    .booking-form textarea{
+        resize:none;
+        height:120px;
+    }
+
+    .btn-primary{
+        width:100%;
+        padding:14px;
+        border:none;
+        border-radius:10px;
+        background:#5f4040;
+        color:white;
+        font-size:16px;
+        font-weight:600;
+        cursor:pointer;
+        transition:0.3s;
+    }
+
+    .btn-primary:hover{
+        background:#0056b3;
+    }
+
+    @media(max-width:600px){
+        .booking-container{
+            padding:25px;
+        }
+
+        .booking-container h2{
+            font-size:26px;
+        }
+    }
+</style>
+
+<div class="booking-wrapper">
+
+    <div class="booking-container">
+        <h2>Book Appointment</h2>
+
+        <form method="post" class="booking-form">
+            {% csrf_token %}
+
+            {% if form %}
+                {{ form.as_p }}
+                <button type="submit" class="btn-primary">
+                    Confirm Booking
+                </button>
+            {% endif %}
+        </form>
+    </div>
+
+</div>
+
+{% endblock %}
